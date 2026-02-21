@@ -1,0 +1,12 @@
+.hint {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+.hint code {
+  background: #f3f4f6;
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  font-family: monospace;
+}

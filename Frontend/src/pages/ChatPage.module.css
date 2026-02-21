@@ -1,0 +1,151 @@
+.page { display: flex; flex-direction: column; height: calc(100vh - 0px); }
+.header { padding: 1.25rem 1.5rem; background: #f0fdf4; border-bottom: 1px solid #bbf7d0; }
+.headerTop { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.header h1 { font-size: 1.25rem; font-weight: 600; }
+.genBtn { padding: 0.4rem 0.75rem; font-size: 0.8rem; background: #fff; border: 1px solid #bbf7d0; border-radius: 6px; cursor: pointer; }
+.genBtn:hover:not(:disabled) { background: #f0fdf4; border-color: #22c55e; color: #16a34a; }
+.genBtn:disabled { opacity: 0.6; cursor: not-allowed; }
+.hint { font-size: 0.875rem; color: #6b7280; margin-top: 0.25rem; }
+.messages { flex: 1; overflow: auto; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+.empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #9ca3af; text-align: center; padding: 2rem; }
+.example { margin-top: 0.5rem; font-size: 0.875rem; }
+.msgUser { align-self: flex-end; max-width: 85%; }
+.msgAssistant { align-self: flex-start; max-width: 90%; }
+.msgUser .msgContent { background: #2563eb; color: #fff; padding: 0.75rem 1rem; border-radius: 12px 12px 4px 12px; }
+.msgHelper {
+  /* ... */
+}
+
+/* Markdown Styles */
+.markdown {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.markdown p {
+  margin-bottom: 0.75rem;
+}
+
+.markdown h3, .markdown h4 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.markdown ul, .markdown ol {
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+}
+
+.markdown li {
+  margin-bottom: 0.25rem;
+}
+
+.markdown code {
+  background: #f3f4f6;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.85em;
+  color: #ef4444;
+}
+
+.markdown pre {
+  background: #1f2937;
+  color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.markdown pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: 0.85rem;
+}
+
+.markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.markdown th, .markdown td {
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.markdown th {
+  background: #f9fafb;
+  font-weight: 600;
+}
+
+.sqlBlock { position: relative; margin-top: 0.75rem; }
+.copyBtn { position: absolute; top: 0.5rem; right: 0.5rem; padding: 0.25rem 0.5rem; font-size: 0.7rem; background: #374151; color: #e5e7eb; border: none; border-radius: 4px; cursor: pointer; }
+.copyBtn:hover { background: #4b5563; }
+.sql { padding: 0.75rem; padding-top: 2rem; background: #1f2937; color: #e5e7eb; border-radius: 8px; font-size: 0.8rem; overflow-x: auto; }
+.form { display: flex; gap: 0.5rem; padding: 1rem 1.5rem; background: #fff; border-top: 1px solid #e5e7eb; }
+.input { flex: 1; padding: 0.75rem 1rem; border: 1px solid #d1d5db; border-radius: 8px; font-size: 1rem; }
+.input:focus { outline: none; border-color: #22c55e; }
+.button { padding: 0.75rem 1.25rem; background: #22c55e; color: #fff; border: 1px solid #16a34a; border-radius: 8px; font-weight: 500; cursor: pointer; }
+.button:hover:not(:disabled) { background: #16a34a; border-color: #15803d; }
+.button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.artifacts {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.artifacts h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  color: #475569;
+  font-weight: 600;
+}
+.artifacts ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.artifacts li a {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #334155;
+  transition: all 0.2s;
+}
+.artifacts li a:hover {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #2563eb;
+}
+.toggleBtn {
+  margin-left: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  background: transparent;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #4b5563;
+}
+.toggleBtn:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
