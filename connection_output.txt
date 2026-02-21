@@ -1,0 +1,11 @@
+--- Groq API Connection Test ---
+
+Loading environment from: D:\DataLens\DataLens\Backend\.env
+API Key loaded: gsk_...SZNI
+
+Attempting to call Groq API (model: llama-3.3-70b-versatile)...
+
+SUCCESS! Connection established.
+------------------------------
+Response: Hello. Yes, I'm working and ready to help you with any questions or tasks you might have. What's on your mind today?
+------------------------------

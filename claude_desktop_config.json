@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "datalens-mcp": {
+      "command": "python",
+      "args": [
+        "D:/DataLens/DataLens/Backend/mcp_server.py"
+      ],
+      "env": {
+        "PYTHONPATH": "D:/DataLens/DataLens/Backend"
+      }
+    }
+  }
+}

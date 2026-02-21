@@ -1,0 +1,25 @@
+.page { padding: 1.5rem; max-width: 960px; }
+.loading, .error { padding: 2rem; color: #6b7280; }
+.error { color: #dc2626; }
+.header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.headerActions { display: flex; gap: 0.5rem; }
+.title { font-size: 1.5rem; font-weight: 600; font-family: ui-monospace, monospace; }
+.genBtn { padding: 0.5rem 1rem; font-size: 0.875rem; background: #fff; border: 1px solid #bbf7d0; border-radius: 8px; cursor: pointer; }
+.genBtn:hover:not(:disabled) { background: #f0fdf4; border-color: #22c55e; color: #16a34a; }
+.genBtn:disabled { opacity: 0.6; cursor: not-allowed; }
+.section { background: #fff; border-radius: 8px; border: 1px solid #bbf7d0; padding: 1.25rem; margin-bottom: 1rem; box-shadow: 0 1px 3px rgba(74, 222, 128, 0.1); }
+.section h2 { font-size: 1rem; font-weight: 600; margin-bottom: 1rem; }
+.description { color: #4b5563; line-height: 1.6; }
+.table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+.table th, .table td { padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid #e5e7eb; }
+.table th { font-weight: 500; color: #6b7280; background: #f9fafb; }
+.table td { color: #374151; }
+.mono { font-family: ui-monospace, monospace; }
+.badge { margin-left: 0.5rem; padding: 0.125rem 0.375rem; font-size: 0.7rem; background: #dcfce7; color: #16a34a; border-radius: 4px; }
+.rowCount { margin-bottom: 1rem; font-size: 0.9rem; color: #6b7280; }
+.list { list-style: none; }
+.list li { padding: 0.375rem 0; font-family: ui-monospace, monospace; font-size: 0.875rem; }
+
+.relGroup { margin-bottom: 2rem; }
+.relList { list-style: disc; margin-left: 1.5rem; }
+
