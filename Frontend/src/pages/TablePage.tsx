@@ -15,20 +15,20 @@ export default function TablePage() {
 
   useEffect(() => {
     if (!tableName) return
+
     setLoading(true)
     setError(null)
 
-    // Load schema first to display something quickly
     api.getTable(tableName)
       .then((s) => {
         setSchema(s)
-        // Then load DQ and relationships (which might be slower or fail)
+
         Promise.all([
           api.getTableDq(tableName, dqRefresh > 0).catch(() => null),
           api.getTableRelationships(tableName).catch(() => null)
         ]).then(([d, r]) => {
-            setDq(d)
-            if (r) setRelationships(r)
+          setDq(d)
+          if (r) setRelationships(r)
         })
       })
       .catch((e) => setError(e.message))
@@ -70,20 +70,30 @@ export default function TablePage() {
       <header className={styles.header}>
         <h1 className={styles.title}>{schema.full_name}</h1>
         <div className={styles.headerActions}>
-          <button onClick={() => setDqRefresh((r) => r + 1)} className={styles.genBtn} title="Recompute DQ metrics">
+          <button
+            onClick={() => setDqRefresh((r) => r + 1)}
+            className={styles.genBtn}
+            title="Recompute DQ metrics"
+          >
             Refresh DQ
           </button>
-          <button onClick={handleGenerateDocs} className={styles.genBtn} disabled={genLoading}>
+          <button
+            onClick={handleGenerateDocs}
+            className={styles.genBtn}
+            disabled={genLoading}
+          >
             {genLoading ? 'Generating…' : 'Generate AI description'}
           </button>
         </div>
       </header>
+
       {schema.ai_description && (
         <section className={styles.section}>
           <h2>Description</h2>
           <p className={styles.description}>{schema.ai_description}</p>
         </section>
       )}
+
       <section className={styles.section}>
         <h2>Columns</h2>
         <table className={styles.table}>
@@ -100,7 +110,9 @@ export default function TablePage() {
               <tr key={c.name}>
                 <td className={styles.mono}>
                   {c.name}
-                  {schema.primary_keys.includes(c.name) && <span className={styles.badge}>PK</span>}
+                  {schema.primary_keys.includes(c.name) && (
+                    <span className={styles.badge}>PK</span>
+                  )}
                 </td>
                 <td className={styles.mono}>{c.type}</td>
                 <td>{c.nullable ? 'Yes' : 'No'}</td>
@@ -110,6 +122,7 @@ export default function TablePage() {
           </tbody>
         </table>
       </section>
+
       {schema.foreign_keys.length > 0 && (
         <section className={styles.section}>
           <h2>Foreign Keys</h2>
@@ -122,6 +135,7 @@ export default function TablePage() {
           </ul>
         </section>
       )}
+
       {dq && (
         <section className={styles.section}>
           <h2>Data Quality</h2>
@@ -131,6 +145,7 @@ export default function TablePage() {
               <span> • PK duplicate: {dq.pk_duplicate_pct}%</span>
             )}
           </p>
+
           <table className={styles.table}>
             <thead>
               <tr>
@@ -162,38 +177,39 @@ export default function TablePage() {
         </section>
       )}
 
-      {relationships && !relationships.error && (relationships.outgoing_relationships?.length > 0 || relationships.incoming_relationships?.length > 0) && (
-        <section className={styles.section}>
-          <h2>Relationships (MCP Inspection)</h2>
-          
-          {relationships.outgoing_relationships?.length > 0 && (
-            <div className={styles.relGroup}>
-              <h3>Outgoing Relationships (Foreign Keys)</h3>
-              <ul className={styles.relList}>
-                {relationships.outgoing_relationships.map((rel: any, i: number) => (
-                  <li key={i}>
-                    <strong>{rel.related_table}</strong>: {rel.description}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+      {relationships &&
+        (relationships.outgoing_relationships?.length > 0 ||
+          relationships.incoming_relationships?.length > 0) && (
+          <section className={styles.section}>
+            <h2>Relationships (MCP Inspection)</h2>
 
-          {relationships.incoming_relationships?.length > 0 && (
-            <div className={styles.relGroup}>
-              <h3>Incoming References</h3>
-              <ul className={styles.relList}>
-                {relationships.incoming_relationships.map((rel: any, i: number) => (
-                  <li key={i}>
-                    <strong>{rel.related_table}</strong>: {rel.description}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </section>
-      )}
+            {relationships.outgoing_relationships?.length > 0 && (
+              <div className={styles.relGroup}>
+                <h3>Outgoing Relationships (Foreign Keys)</h3>
+                <ul className={styles.relList}>
+                  {relationships.outgoing_relationships.map((rel: any, i: number) => (
+                    <li key={i}>
+                      <strong>{rel.related_table}</strong>: {rel.description}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {relationships.incoming_relationships?.length > 0 && (
+              <div className={styles.relGroup}>
+                <h3>Incoming References</h3>
+                <ul className={styles.relList}>
+                  {relationships.incoming_relationships.map((rel: any, i: number) => (
+                    <li key={i}>
+                      <strong>{rel.related_table}</strong>: {rel.description}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </section>
+        )}
     </div>
-
   )
 }
